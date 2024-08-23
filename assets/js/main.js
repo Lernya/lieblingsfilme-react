@@ -175,17 +175,16 @@ document
   .getElementById("searchForm")
   .addEventListener("submit", async (event) => {
     event.preventDefault(); // Prevent the default form submission (page reload)
-
+    console.log("was anderes");
     const query = searchInput.value; // Get the current value of the input
     if (query.length > 0) {
       const searchResults = await fetchMovies(query); // Fetch matching movies if input is not empty
 
-      main.innerHTML = ""; // Clear the main section content
+      main.innerHTML = "<h2>Search Results:</h2>"; // Clear the main section content
 
       // Create the container that includes both the heading and the movie cards
       const resultsContainer = document.createElement("div");
-      resultsContainer.classList.add("results");
-      resultsContainer.innerHTML = `<h2>Search Results:</h2>`;
+      resultsContainer.classList.add("flex", "flex-wrap", "justify-center");
 
       // Append movie elements directly beneath the heading in the same container
       searchResults.forEach((movie) => {
@@ -241,22 +240,23 @@ document
 let currentFocus = -1; // Variable to keep track of the focused item in the dropdown
 
 searchInput.addEventListener("keydown", (event) => {
-  const items = autocompleteDropdown.getElementsByTagName("div"); // Get all items in the dropdown
+  const items = autocompleteDropdown.getElementsByTagName("div");
 
   if (event.key === "ArrowDown") {
-    // If the down arrow key is pressed
     currentFocus++;
     addActive(items);
   } else if (event.key === "ArrowUp") {
-    // If the up arrow key is pressed
     currentFocus--;
     addActive(items);
   } else if (event.key === "Enter") {
-    // If the Enter key is pressed
+    console.log("irgendwas", event.target);
     event.preventDefault();
-    if (currentFocus > -1) {
-      // Simulate a click on the focused item
-      if (items) items[currentFocus].click();
+    if (currentFocus > -1 && items[currentFocus]) {
+      // Simulate a click on the focused item in the dropdown
+      items[currentFocus].click();
+    } else {
+      // Trigger the form submission when Enter is pressed and no dropdown item is selected
+      document.getElementById("searchForm").submit();
     }
   }
 });
