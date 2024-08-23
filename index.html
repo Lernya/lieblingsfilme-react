@@ -1,94 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <link rel="stylesheet" href="style.css" />
-    <title>Favorite Movies React</title>
-
-    <style>
-      .autocomplete-active {
-        background-color: #e2e8f0; /* Light blue background to highlight */
-        color: #000000; /* Ensure text is visible */
-      }
-    </style>
+    <title>Vite + React</title>
   </head>
-  <body class="">
-    <!-- Header section with navigation and search bar -->
-    <header class="bg-white shadow p-4">
-      <div class="max-w-7xl mx-auto flex justify-around items-center">
-        <!-- Navigation bar -->
-        <nav>
-          <ul class="flex p-2 space-x-2">
-            <li>
-              <a href="index.html" class="text-gray-700 hover:text-blue-500"
-                >Home</a
-              >
-            </li>
-            <li>
-              <a href="journal.html" class="text-gray-700 hover:text-blue-500"
-                >Journal</a
-              >
-            </li>
-          </ul>
-        </nav>
-        <!-- Search bar -->
-        <div class="relative">
-          <form id="searchForm" class="flex items-center">
-            <!-- Search input field -->
-            <input
-              type="text"
-              id="searchInput"
-              placeholder="Search..."
-              class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              autocomplete="off"
-            />
-            <!-- Search button -->
-            <button
-              type="submit"
-              class="ml-2 bg-blue-500 text-white px-4 py-2 rounded-lg"
-            >
-              Search
-            </button>
-          </form>
-          <!-- Autocomplete dropdown that appears under the search input -->
-          <div
-            id="autocompleteDropdown"
-            class="absolute z-10 bg-white border border-gray-300 rounded-lg mt-2 w-full hidden"
-          ></div>
-        </div>
-      </div>
-    </header>
-
-    <!-- Main section where movie cards will be displayed -->
-    <main
-      id="main"
-      class=" "
-    ></main>
-
-    <!-- Modal dialog for displaying search results -->
-    <div
-      id="searchModal"
-      class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden"
-    >
-      <div class="bg-white rounded-lg p-6 max-w-md w-full">
-        <h2 class="text-xl font-semibold mb-4">Search Results</h2>
-        <!-- Search results container; cards will be inserted here dynamically -->
-        <div id="searchResults" class="text-gray-700">
-          <!-- Search results will be dynamically inserted here -->
-        </div>
-        <!-- Close button for the modal -->
-        <button
-          id="closeModal"
-          class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg"
-        >
-          Close
-        </button>
-      </div>
-    </div>
-
-    <!-- Linking to the main JavaScript file -->
-    <script src="assets/js/main.js"></script>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
